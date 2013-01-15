@@ -40,6 +40,11 @@ public class MapsHomePageTest {
 		Thread.sleep(10000);
 	}
 	
+	@Test
+	public void testTransit() throws InterruptedException{
+		new MapsHomePage(driver).enableTransit();
+	}
+	
 	
 
 }

@@ -6,9 +6,9 @@
       <class name="com.wd.MapsHomePageTest">
         <methods>
           <include name="tearDown"/>
-          <include name="testHomePage"/>
           <include name="classTearDown"/>
           <include name="classSetup"/>
+          <include name="testTransit"/>
           <include name="setup"/>
         </methods>
       </class> <!-- com.wd.MapsHomePageTest -->

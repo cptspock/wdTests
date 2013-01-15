@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -30,7 +31,8 @@ public class MapsHomePage {
 		element.sendKeys(Keys.ENTER);
 		System.out.println(driver.getTitle());
 		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.titleContains(from));
+		wait.until(ExpectedConditions.titleContains(from));		
+		
 		
 		//driver.getTitle().toLowerCase().contains(from.toLowerCase());
 		
@@ -40,7 +42,6 @@ public class MapsHomePage {
 			}
 		});*/
 		
-		System.out.println("reached here");
 	}
 	
 	private void findDirectionsByTransit(){
@@ -55,6 +56,19 @@ public class MapsHomePage {
 		
 	}
 	
+	public void enableTransit() throws InterruptedException{
+		// mouse hover over Traffic card
+		WebElement element = driver.findElement(By.xpath("//div[@class='mv-primary-label-text' and text()='Satellite']"));
+		
+		Actions builder = new Actions(driver);
+		builder.moveToElement(element).build().perform();
+		Thread.sleep(5000);
+				
+		// Transit card should not be visible so click it
+		element = driver.findElement(By.xpath("//span[text()='Transit']"));
+		element.click();
+		Thread.sleep(5000);
+	}
 	
 
 }
