@@ -15,8 +15,7 @@ public class Selenium2Example {
 		// Notice that the remainder of the code relies on the interface,
 		// not the implementation.
 		WebDriver driver = new FirefoxDriver();
-		driver.manage().window().maximize();
-		Actions builder = new Actions(driver);
+		driver.manage().window().maximize();		
 
 		// And now use this to visit Google
 		driver.get("http://maps.google.com");
