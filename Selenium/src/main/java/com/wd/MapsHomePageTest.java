@@ -22,8 +22,7 @@ public class MapsHomePageTest {
 		driver.get("http://maps.google.com");
 		driver.manage().window().maximize();
 		if (driver.getTitle().equals("Google Maps"))
-			mapsHomePage = new MapsHomePage(driver);
-		
+			mapsHomePage = new MapsHomePage(driver);		
 	}
 
 	@AfterMethod
@@ -46,4 +45,8 @@ public class MapsHomePageTest {
 		mapsHomePage.enableTransit();
 	}
 
+	@Test
+	public void testTraffic() throws InterruptedException {
+		mapsHomePage.enableTraffic();
+	}
 }
