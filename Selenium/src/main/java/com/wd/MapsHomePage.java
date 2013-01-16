@@ -27,14 +27,10 @@ public class MapsHomePage {
 		
 		/*element = driver.findElement(By.xpath("//button[@id='d_sub']"));
 		System.out.println(element.isDisplayed());*/
-		//button.click();
 		element.sendKeys(Keys.ENTER);
 		System.out.println(driver.getTitle());
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.titleContains(from));		
-		
-		
-		//driver.getTitle().toLowerCase().contains(from.toLowerCase());
 		
 		/*(new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
 			public Boolean apply(WebDriver d) {
@@ -57,15 +53,15 @@ public class MapsHomePage {
 	}
 	
 	public void enableTransit() throws InterruptedException{
-		// mouse hover over Traffic card
+		// mouse hover over Satellite card
 		WebElement element = driver.findElement(By.xpath("//div[@class='mv-primary-label-text' and text()='Satellite']"));
 		
 		Actions builder = new Actions(driver);
 		builder.moveToElement(element).build().perform();
 		Thread.sleep(5000);
 				
-		// Transit card should not be visible so click it
-		element = driver.findElement(By.xpath("//span[text()='Transit']"));
+		// Transit card should now be visible so click it
+		element = driver.findElement(By.xpath("//span[text()='Terrain']"));
 		element.click();
 		Thread.sleep(5000);
 	}
